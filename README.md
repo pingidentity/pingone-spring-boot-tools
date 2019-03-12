@@ -49,6 +49,28 @@ Also, make sure you use the `_csrf` request attribute to obtain the current `Csr
 This requires `ConcurrentSessionFilter` (or any other filter in the chain), that checks SessionInformation and calls all logout handlers and then do redirect.
 2. Thymeleaf LEGACYHTM5 configuration (`spring.thymeleaf.mode=LEGACYHTML5`) will allow you to use more casual HTML5 tags if you want to. Otherwise, Thymeleaf will be very strict and may not parse your HTML. For instance, if you do not close an input tag, Thymeleaf will not parse your HTML.
 3. We use [`pattern`](https://html.spec.whatwg.org/multipage/input.html#the-pattern-attribute) attribute for password input HTML elements. It allows us to define our own rule to validate the input value using Regular Expressions ([RegEx](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)). It works on most browsers - those that support JavaScript 1.5 (Firefox, Chrome, Safari, Opera 7 and Internet Explorer 8 and higher), but very old browsers may not recognise these patterns.
-One thing that would be good to know about here is a [lookahead assertion](https://www.rexegg.com/regex-disambiguation.html#lookarounds)(`(?= … )`groups) 
+One thing that would be good to know about here is a [lookahead assertion](https://www.rexegg.com/regex-disambiguation.html#lookarounds)(`(?= … )`groups)
+4. Until we are storing `spring-boot-sdk` jar in GitHub with [GitHub Maven Plugins](https://github.com/github/maven-plugins)(that should not be a case until at least [October of 2019](https://rawgit.com/)), you need to keep this server configuration in maven `settings.xml`:
+```xml
+<server>
+ <id>github</id>
+ <password>OAUTH2TOKEN</password>
+</server>
+```
+where `OAUTH2TOKEN` is a [personal access token](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line) you need to create (unless you have some) if you have Two-factor Authentication, or
+```xml
+<server>
+ <id>github</id>
+ <username>GitHubLogin</username>
+ <password>GitHubPassw0rd</password>
+</server>
+```
+in a simple user:password case.
+
+Please don't forget to set `OAUTH2TOKEN` as environment variable(if you are using it) for login failures prevention:
+```bash
+export GITHUB_OAUTH_TOKEN={OAUTH2TOKEN}
+``` 
+ 
 
 
