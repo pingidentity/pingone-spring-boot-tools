@@ -4,8 +4,8 @@
   <artifactId>spring-boot-sdk</artifactId>
   <versioning>
     <versions>
-      <version>0.0.1-SNAPSHOT</version>
+      <version>0.0.2-SNAPSHOT</version>
     </versions>
-    <lastUpdated>20190311190454</lastUpdated>
+    <lastUpdated>20190708103544</lastUpdated>
   </versioning>
 </metadata>
