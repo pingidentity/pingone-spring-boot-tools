@@ -24,12 +24,24 @@ public class PasswordPolicy {
   private boolean excludesCommonlyUsed;
   private int minComplexity;
   private int maxAgeDays;
+  /**
+   * Specifies the maximum number of repeated characters allowed.
+   * It is not enforced when not present.
+   */
   private int maxRepeatedCharacters;
+  /**
+   * Specifies the minimum number of unique characters required.
+   * It is not enforced when not present.
+   */
   private int minUniqueCharacters;
+  /**
+   * Specifies the maximum or minimum number of characters allowed for the password.
+   */
   private Length length;
   /**
    * A set of key-value pairs where the key is a string containing all the characters that may be included and the value
    * is the minimum number of times one of the characters must appear in the password.
+   * It is not enforced when not present.
    */
   private Map<String, Integer> minCharacters;
 

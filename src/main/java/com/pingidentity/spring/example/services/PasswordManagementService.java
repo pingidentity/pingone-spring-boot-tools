@@ -130,15 +130,25 @@ public class PasswordManagementService {
   }
 
   /**
-   * Get password validation pattern from default password policy
+   * Get password validation pattern from default password policy,
+   * or standard - if the default one doesn't have necessary properties( "minCharacters" and "maxRepeatedCharacters")
    *
    * @return password validation pattern in a regex format
    */
   public String getPasswordPattern() {
     PasswordPolicy.PasswordPolicies passwordPolicies = getPasswordPolicies();
     PasswordPolicy policy = passwordPolicies.getPasswordPolicies().stream()
-        .filter(passwordPolicy -> passwordPolicy.isDefault())
-        .findFirst().get();
+        .filter(passwordPolicy -> passwordPolicy.isDefault()
+            && passwordPolicy.getMinCharacters() != null && !passwordPolicy.getMinCharacters().isEmpty()
+            && passwordPolicy.getMaxRepeatedCharacters() != 0
+        )
+        .findFirst()
+        .orElse(
+            passwordPolicies.getPasswordPolicies().stream()
+                .filter(passwordPolicy -> "Standard".equals(passwordPolicy.getName()))
+                .findFirst()
+                .get()
+        );
     return getPasswordRegex(policy);
   }
 
