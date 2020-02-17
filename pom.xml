@@ -11,7 +11,7 @@
   </parent>
 
   <artifactId>spring-boot-sdk</artifactId>
-  <version>0.0.4-SNAPSHOT</version>
+  <version>0.0.5-SNAPSHOT</version>
   <groupId>com.pingidentity.samples</groupId>
   <name>spring boot sdk</name>
   <description>PingOne for Customers Spring Boot SDK</description>
