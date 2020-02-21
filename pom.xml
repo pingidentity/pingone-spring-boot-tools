@@ -7,11 +7,11 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.1.6.RELEASE</version>
+    <version>2.2.4.RELEASE</version>
   </parent>
 
   <artifactId>spring-boot-sdk</artifactId>
-  <version>0.0.4-SNAPSHOT</version>
+  <version>0.0.5-SNAPSHOT</version>
   <groupId>com.pingidentity.samples</groupId>
   <name>spring boot sdk</name>
   <description>PingOne for Customers Spring Boot SDK</description>
@@ -64,7 +64,7 @@
     <dependency>
       <groupId>org.springframework.security.oauth</groupId>
       <artifactId>spring-security-oauth2</artifactId>
-      <version>2.2.0.RELEASE</version>
+      <version>2.4.0.RELEASE</version>
     </dependency>
 
     <dependency>

@@ -1,5 +1,6 @@
 package com.pingidentity.spring.example.data;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.openapitools.jackson.dataformat.hal.annotation.EmbeddedResource;
 import io.openapitools.jackson.dataformat.hal.annotation.Resource;
@@ -7,7 +8,6 @@ import java.util.Collection;
 import java.util.Map;
 import lombok.Data;
 import lombok.experimental.Accessors;
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
 @Accessors(chain = true)
 @JsonIgnoreProperties(ignoreUnknown = true)
