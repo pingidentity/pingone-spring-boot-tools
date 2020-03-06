@@ -47,11 +47,24 @@ Also, make sure you use the `_csrf` request attribute to obtain the current `Csr
 1. For more information about Spring OAuth2 Boot please check [Spring Security Reference about OAuth 2.0 Client](https://docs.spring.io/spring-security/site/docs/current/reference/html5/#oauth2client).
 2. If you want to force logout in all sessions of a user then use `sessionRegistry.getAllSessions().expireNow();`.
 This requires `ConcurrentSessionFilter` (or any other filter in the chain), that checks SessionInformation and calls all logout handlers and then do redirect.
-3. To enable [SSL](https://ru.wikipedia.org/wiki/SSL) (Secure Sockets Layer) in your applications add the following properties: `server.port: 8433`, `server.ssl.enabled: true` and fill certificate related params:
-   - `server.ssl.key-store-type`  the format used for the keystore (i.e PKCS12, JKS file)
-   - `server.ssl.key-store` the path to the keystore containing the certificate
-   - `server.ssl.key-store-password` the password used to generate the certificate
-   - `server.ssl.key-alias` the alias mapped to self-signed certificate
+3. To enable [SSL](https://ru.wikipedia.org/wiki/SSL) (Secure Sockets Layer) in your applications you should:
+   - change server port `server.port: 8433`
+   - enable ssl by its self: via properties - `server.ssl.enabled: true` **or** programmatically in the Spring security
+configuration class, override `protected void configure(HttpSecurity http) throws Exception` method 
+   ```
+     @Override
+     protected void configure(HttpSecurity http) throws Exception {
+
+       http.requiresChannel()
+           .anyRequest()
+           .requiresSecure()
+     }
+   ```
+   - fill certificate related params:
+      - `server.ssl.key-store-type`  the format used for the keystore (i.e PKCS12, JKS file)
+      - `server.ssl.key-store` the path to the keystore containing the certificate
+      - `server.ssl.key-store-password` the password used to generate the certificate
+      - `server.ssl.key-alias` the alias mapped to self-signed certificate
 <br>_`TIP:`_ ["how to create self-signed SSL certificate"](https://oracle-base.com/articles/linux/create-self-signed-ssl-certificates)
 4. Thymeleaf LEGACYHTM5 configuration (`spring.thymeleaf.mode=LEGACYHTML5`) will allow you to use more casual HTML5 tags if you want to. Otherwise, Thymeleaf will be very strict and may not parse your HTML. For instance, if you do not close an input tag, Thymeleaf will not parse your HTML.
 5. We use [`pattern`](https://html.spec.whatwg.org/multipage/input.html#the-pattern-attribute) attribute for password input HTML elements. It allows us to define our own rule to validate the input value using Regular Expressions ([RegEx](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)). It works on most browsers - those that support JavaScript 1.5 (Firefox, Chrome, Safari, Opera 7 and Internet Explorer 8 and higher), but very old browsers may not recognise these patterns.
