@@ -26,11 +26,6 @@ public class OAuth2LoginSecurityConfig extends WebSecurityConfigurerAdapter {
         .antMatchers("/login", "/js/**", "/css/**", "/img/**", "/webjars/**").permitAll()
         .anyRequest().authenticated()
 
-        // Enable ssl
-        .and().requiresChannel()
-        .anyRequest()
-        .requiresSecure()
-
         // Handling Login
         .and().oauth2Login()
         .authorizationEndpoint()
