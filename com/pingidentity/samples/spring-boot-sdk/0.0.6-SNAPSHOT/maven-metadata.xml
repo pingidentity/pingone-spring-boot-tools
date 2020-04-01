@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata modelVersion="1.1.0">
+  <groupId>com.pingidentity.samples</groupId>
+  <artifactId>spring-boot-sdk</artifactId>
+  <version>0.0.6-SNAPSHOT</version>
+  <versioning>
+    <snapshot>
+      <timestamp>20200401.120419</timestamp>
+      <buildNumber>4</buildNumber>
+    </snapshot>
+    <lastUpdated>20200401120419</lastUpdated>
+    <snapshotVersions>
+      <snapshotVersion>
+        <extension>jar</extension>
+        <value>0.0.6-20200401.120419-4</value>
+        <updated>20200401120419</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <extension>pom</extension>
+        <value>0.0.6-20200401.120419-4</value>
+        <updated>20200401120419</updated>
+      </snapshotVersion>
+    </snapshotVersions>
+  </versioning>
+</metadata>
