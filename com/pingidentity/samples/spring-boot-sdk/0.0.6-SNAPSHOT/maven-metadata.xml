@@ -2,23 +2,23 @@
 <metadata modelVersion="1.1.0">
   <groupId>com.pingidentity.samples</groupId>
   <artifactId>spring-boot-sdk</artifactId>
-  <version>0.0.3-SNAPSHOT</version>
+  <version>0.0.6-SNAPSHOT</version>
   <versioning>
     <snapshot>
-      <timestamp>20190729.105942</timestamp>
+      <timestamp>20200401.122214</timestamp>
       <buildNumber>1</buildNumber>
     </snapshot>
-    <lastUpdated>20190729105942</lastUpdated>
+    <lastUpdated>20200401122214</lastUpdated>
     <snapshotVersions>
       <snapshotVersion>
         <extension>jar</extension>
-        <value>0.0.3-20190729.105942-1</value>
-        <updated>20190729105942</updated>
+        <value>0.0.6-20200401.122214-1</value>
+        <updated>20200401122214</updated>
       </snapshotVersion>
       <snapshotVersion>
         <extension>pom</extension>
-        <value>0.0.3-20190729.105942-1</value>
-        <updated>20190729105942</updated>
+        <value>0.0.6-20200401.122214-1</value>
+        <updated>20200401122214</updated>
       </snapshotVersion>
     </snapshotVersions>
   </versioning>
